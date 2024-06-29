@@ -1,0 +1,16 @@
+I want to make a photo gallery app using Streamlit. Here are the details:
+
+1. **Photo Storage:**
+   - The photos are stored locally on my computer in a folder named 'photos'.
+
+2. **Photo Display:**
+   - Display the photos in a grid layout.
+   - Each photo should be displayed as a thumbnail. When a thumbnail is clicked, the full-sized image should be displayed.
+
+3. **Additional Features:**
+   - Users should be able to navigate through different folders within the 'photos' directory.
+   - Each photo should have a caption displayed below it.
+   - Provide an option for users to download the full-sized image.
+   - Include a search functionality to filter photos by filename or caption.
+
+Please generate the Streamlit code to create this photo gallery app based on the above specifications.
