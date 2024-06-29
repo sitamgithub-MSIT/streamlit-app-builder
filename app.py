@@ -162,7 +162,7 @@ with tabs[1]:
             except Exception as e:
                 st.error(f"An error occurred: {e}")
 
+    # If text prompt is not provided and start button is clicked
     elif not text_prompt and start_button:
-        # if not text_prompt and start_button:
         # Warn user to provide text prompt
         st.warning("Please provide your text prompt.")
