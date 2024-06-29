@@ -142,7 +142,7 @@ with tabs[1]:
     start_button = st.button("Build", key="button_text_start")
 
     # If text prompt is provided and start button is clicked
-    if text_prompt is not None and start_button:
+    if text_prompt and start_button:
 
         # Processing the text prompt
         with st.spinner("Processing ..."):
@@ -162,7 +162,7 @@ with tabs[1]:
             except Exception as e:
                 st.error(f"An error occurred: {e}")
 
-    else:
-        if not text_prompt and start_button:
-            # Warn user to provide text prompt
-            st.warning("Please provide your text prompt.")
+    elif not text_prompt and start_button:
+        # if not text_prompt and start_button:
+        # Warn user to provide text prompt
+        st.warning("Please provide your text prompt.")
