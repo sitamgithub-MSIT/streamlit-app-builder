@@ -20,11 +20,11 @@ model = genai.GenerativeModel(
     generation_config=generation_config,
     safety_settings=safety_settings,
     system_instruction=system_prompt,
-    #tools="code_execution",
+    # tools="code_execution",
 )
 
 # Instruction for the response generation
-instruction = "Generate Streamlit app code based on the provided image or example."
+instruction = "Generate the complete Streamlit app code based on the provided preview image or example. Ensure the code includes layout, functionality, and any specified features visible in the image. Incorporate common Streamlit components such as sliders, buttons, and charts where applicable, handle any specific UI elements shown in the image, and ensure proper data handling and user interactions are implemented."
 
 
 def generate_text_response(text_prompt):
