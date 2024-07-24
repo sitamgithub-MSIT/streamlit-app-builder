@@ -2,11 +2,13 @@
 import os
 from PIL import Image
 
+# Streamlit imports
 import streamlit as st
 from streamlit_image_select import image_select
 
+# Local imports
 from src.utils import input_image_details
-from src.llm_response import (
+from src.model.llm_response import (
     generate_image_response,
     generate_text_response,
     generate_example_image_response,
@@ -63,7 +65,7 @@ with tabs[0]:
         start_button = st.button("Build", key="button_image_start", disabled=False)
 
     # If image is uploaded or example image is selected
-    if any([upload_img, example_img]) == True:
+    if any([upload_img, example_img]):
         if "img" in locals() or "img" in globals():
             if start_button:
 
@@ -121,12 +123,12 @@ with tabs[0]:
 
                 # Raise error if any error occurs during response generation
                 except Exception as e:
-                    st.error(f"An error occurred: {e}")
+                    st.error("Error on image prompt generation response")
+                    print(e)
 
-        else:
-            if not image_upload and start_button:
-                # Warn user to upload image
-                st.warning("Please upload your preview image.")
+        elif not image_upload and start_button:
+            # Warn user to upload image
+            st.warning("Please upload your preview image.")
 
 
 # Tell how the app should be built
@@ -160,7 +162,8 @@ with tabs[1]:
 
             # Raise error if any error occurs during response generation
             except Exception as e:
-                st.error(f"An error occurred: {e}")
+                st.error("Error on text prompt generation response")
+                print(e)
 
     # If text prompt is not provided and start button is clicked
     elif not text_prompt and start_button:

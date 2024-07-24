@@ -1,11 +1,15 @@
 # Necessary imports
 import os
+import sys
 from dotenv import load_dotenv
 
 import google.generativeai as genai
 
-from src.config import generation_config, safety_settings, model_name
-from src.prompt import system_prompt
+# Local imports
+from src.model.config import generation_config, safety_settings, model_name
+from src.model.prompt import system_prompt
+from src.logger import logging
+from src.exception import CustomExceptionHandling
 
 
 # Load the Environment Variables from .env file
@@ -27,7 +31,7 @@ model = genai.GenerativeModel(
 instruction = "Generate the complete Streamlit app code based on the provided preview image or example. Ensure the code includes layout, functionality, and any specified features visible in the image. Incorporate common Streamlit components such as sliders, buttons, and charts where applicable, handle any specific UI elements shown in the image, and ensure proper data handling and user interactions are implemented."
 
 
-def generate_text_response(text_prompt):
+def generate_text_response(text_prompt: str) -> str:
     """
     Generate Streamlit app code based on the provided text prompt.
 
@@ -44,16 +48,19 @@ def generate_text_response(text_prompt):
         # Response generation for text using Gemini API
         response = model.generate_content(text_prompt)
 
-        # Extract the actual content part from the response
-        content = response.text
-        return content
+        # Log the successful response generation
+        logging.info("Response generated successfully for text prompt")
+
+        # Return the extracted content from the response
+        return response.text
 
     # Raise error if any error occurs during response generation
     except Exception as e:
-        raise RuntimeError(f"An error occurred during text response generation: {e}")
+        # Custom exception handling
+        raise CustomExceptionHandling(e, sys) from e
 
 
-def generate_example_image_response(img):
+def generate_example_image_response(img: str) -> str:
     """
     Generate Streamlit app code based on the provided example image.
 
@@ -70,16 +77,18 @@ def generate_example_image_response(img):
         # Response generation for example image using Gemini API
         response = model.generate_content([instruction, img])
 
-        # Extract the actual content part from the response
-        content = response.text
-        return content
+        # Log the successful response generation
+        logging.info("Response generated successfully for example image")
 
-    # Raise error if any error occurs during response generation
+        # Return the extracted content from the response
+        return response.text
+
     except Exception as e:
-        raise RuntimeError(f"An error occurred during image response generation: {e}")
+        # Custom exception handling
+        raise CustomExceptionHandling(e, sys) from e
 
 
-def generate_image_response(image_data):
+def generate_image_response(image_data: list) -> str:
     """
     Generate a response for an uploaded image using the Gemini API.
 
@@ -96,10 +105,13 @@ def generate_image_response(image_data):
         # Response generation for uploaded image using Gemini API
         response = model.generate_content([instruction, image_data[0]])
 
-        # Extract the actual content part from the response
-        content = response.text
-        return content
+        # Log the successful response generation
+        logging.info("Response generated successfully for uploaded image")
+
+        # Return the extracted content from the response
+        return response.text
 
     # Raise error if any error occurs during response generation
     except Exception as e:
-        raise RuntimeError(f"An error occurred during image response generation: {e}")
+        # Custom exception handling
+        raise CustomExceptionHandling(e, sys) from e
