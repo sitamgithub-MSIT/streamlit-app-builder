@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 # Weave import
 import weave
+
 weave.init("streamlit-app-builder")
 
 import google.generativeai as genai
@@ -12,6 +13,7 @@ import google.generativeai as genai
 # Local imports
 from src.model.config import generation_config, safety_settings, model_name
 from src.model.prompt import system_prompt
+from src.utils import input_image_details
 from src.logger import logging
 from src.exception import CustomExceptionHandling
 
@@ -100,8 +102,8 @@ def generate_image_response(image_data: list) -> str:
     """
     try:
         # Response generation for uploaded image using Gemini API
+        image_data = input_image_details(image_data)
         response = model.generate_content([instruction, image_data[0]])
-        print(image_data)
 
         # Log the successful response generation
         logging.info("Response generated successfully for uploaded image")

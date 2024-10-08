@@ -7,7 +7,6 @@ import streamlit as st
 from streamlit_image_select import image_select
 
 # Local imports
-from src.utils import input_image_details
 from src.model.llm_response import (
     generate_image_response,
     generate_text_response,
@@ -108,11 +107,9 @@ with tabs[0]:
 
             # Processing the image
             with st.spinner("Processing ..."):
-                image_data = input_image_details(image_upload)
-
                 try:
                     # Get the generated output from the model based on the image uploaded
-                    image_data_output = generate_image_response(image_data)
+                    image_data_output = generate_image_response(image_upload)
                     # Display the output
                     st.subheader("Output")
                     st.write(image_data_output)
