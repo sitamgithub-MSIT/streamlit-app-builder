@@ -35,14 +35,11 @@ def generate_text_response(text_prompt: str) -> str:
     """
     Generate Streamlit app code based on the provided text prompt.
 
-    Parameters:
-    - text_prompt (str): The text prompt provided by the user.
+    Args:
+        text_prompt (str): The text prompt provided by the user.
 
     Returns:
-    - str: Extracted content from the response.
-
-    Raises:
-    - RuntimeError: If an error occurs during response generation.
+        str: Extracted content from the response.
     """
     try:
         # Response generation for text using Gemini API
@@ -64,14 +61,11 @@ def generate_example_image_response(img: str) -> str:
     """
     Generate Streamlit app code based on the provided example image.
 
-    Parameters:
-    - img (str): Image identifier or path.
+    Args:
+        img (str): Image identifier or path.
 
     Returns:
-    - str: Extracted content from the response.
-
-    Raises:
-    - RuntimeError: If an error occurs during response generation.
+        str: Extracted content from the response.
     """
     try:
         # Response generation for example image using Gemini API
@@ -92,14 +86,11 @@ def generate_image_response(image_data: list) -> str:
     """
     Generate a response for an uploaded image using the Gemini API.
 
-    Parameters:
+    Args:
         image_data (list): A list containing the image data.
 
     Returns:
         str: The generated response content.
-
-    Raises:
-        RuntimeError: If an error occurs during response generation.
     """
     try:
         # Response generation for uploaded image using Gemini API
