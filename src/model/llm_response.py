@@ -3,6 +3,10 @@ import os
 import sys
 from dotenv import load_dotenv
 
+# Weave import
+import weave
+weave.init("streamlit-app-builder")
+
 import google.generativeai as genai
 
 # Local imports
@@ -31,6 +35,7 @@ model = genai.GenerativeModel(
 instruction = "Generate the complete Streamlit app code based on the provided preview image or example. Ensure the code includes layout, functionality, and any specified features visible in the image. Incorporate common Streamlit components such as sliders, buttons, and charts where applicable, handle any specific UI elements shown in the image, and ensure proper data handling and user interactions are implemented."
 
 
+@weave.op()
 def generate_text_response(text_prompt: str) -> str:
     """
     Generate Streamlit app code based on the provided text prompt.
@@ -82,6 +87,7 @@ def generate_example_image_response(img: str) -> str:
         raise CustomExceptionHandling(e, sys) from e
 
 
+@weave.op()
 def generate_image_response(image_data: list) -> str:
     """
     Generate a response for an uploaded image using the Gemini API.
@@ -95,6 +101,7 @@ def generate_image_response(image_data: list) -> str:
     try:
         # Response generation for uploaded image using Gemini API
         response = model.generate_content([instruction, image_data[0]])
+        print(image_data)
 
         # Log the successful response generation
         logging.info("Response generated successfully for uploaded image")
