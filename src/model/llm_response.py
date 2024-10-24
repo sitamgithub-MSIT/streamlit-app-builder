@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 # Weave import
 import weave
-
 weave.init("streamlit-app-builder")
 
 import google.generativeai as genai
