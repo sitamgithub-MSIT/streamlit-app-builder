@@ -1,6 +1,6 @@
 # Streamlit App Builder
 
-Streamlit is an open-source framework designed for building applications in Machine Learning and Data Science. This specific project is a Streamlit application that helps users create other Streamlit applications. It allows users to upload mockups or generate code in text mode, making the process of developing Streamlit applications simpler and more efficient.
+Streamlit is an open-source framework designed to build machine learning and data science applications. This specific project is a Streamlit application that helps users create other Streamlit applications. It allows users to upload mockups or generate code in text mode, making the process of developing Streamlit applications simpler and more efficient.
 
 ## Project Structure
 
@@ -81,7 +81,7 @@ WEAVE_API_KEY=YOUR_WEAVE_API_KEY
 
 ## Usage
 
-Once the application is up and running, you can interact with the App Builder through the provided UI. It can analyze mockup images and generate code in text mode. The application can also generate code for the text based descriptions as well.
+Once the application is up and running, you can interact with the App Builder through the provided UI. It can analyze mockup images and generate code in text mode. The application can also generate code for the text-based descriptions as well.
 
 ### Example
 
@@ -99,7 +99,7 @@ This Streamlit application can analyze the content of the sample image or text a
 
 ## Conclusion
 
-In this project, we have built an AI-powered builder for Streamlit applications. We have used the Gemini API for the AI capabilities, W&B Weave for the model call tracing. The application was built using Streamlit and Dockerized, and finally, deployed on the Google Cloud Platform (GCP) using the Cloud Run service with a CI/CD pipeline using Cloud Build.
+In this project, we have built an AI-powered builder for Streamlit applications. We have used the Gemini API for the AI capabilities, and W&B Weave for the model call tracing. The application was built using Streamlit and Dockerized, and finally, deployed on the Google Cloud Platform (GCP) using the Cloud Run service with a CI/CD pipeline using Cloud Build.
 
 ## Contributing
 
