@@ -65,7 +65,7 @@ Open your local host to view the web application. For more information, consult 
 
 ## Deployment
 
-The application is deployed on Google Cloud Run. Follow the Google Cloud Generative AI sample app [here](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/sample-apps/gemini-streamlit-cloudrun) to deploy the application on Google Cloud Run. You can also refer to the dedicated blog post [here](https://medium.com/google-cloud/how-to-create-an-ai-powered-website-analysis-chatbot-37d1ea8c4684) for more details.
+The application is deployed on Google Cloud Run. Follow the Google Cloud Generative AI sample app [here](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/sample-apps/gemini-streamlit-cloudrun) to deploy the application on Google Cloud Run. You can also refer to the dedicated lab [here](https://www.cloudskillsboost.google/focuses/85991?parent=catalog) for more details.
 
 ## Model Tracing
 
