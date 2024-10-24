@@ -61,15 +61,15 @@ To get started with this project, follow the steps below:
 GOOGLE_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
-Open your local host to view the web application. For more information, consult the Streamlit documentation [here](https://docs.streamlit.io/). You can also access a live version of the application [here](/), which is deployed on Google Cloud Run.
+Open your local host to view the web application. For more information, consult the Streamlit [documentation](https://docs.streamlit.io/). You can also access a live version of the application [here](/), which is deployed on Google Cloud Run.
 
 ## Deployment
 
-The application is deployed on Google Cloud Run. Follow the Google Cloud Generative AI sample app [here](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/sample-apps/gemini-streamlit-cloudrun) to deploy the application on Google Cloud Run. You can also refer to the dedicated lab [here](https://www.cloudskillsboost.google/focuses/85991?parent=catalog) for more details.
+The application is deployed on Google Cloud Run. Follow the Google Cloud Generative AI sample [app](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/sample-apps/gemini-streamlit-cloudrun) to deploy the application on Google Cloud Run. You can also refer to the dedicated [lab](https://www.cloudskillsboost.google/focuses/85991?parent=catalog) for more details.
 
 ## Model Tracing
 
-Model tracing is enabled using the W&B Weave. Refer to the documentation [here](https://weave-docs.wandb.ai/) to understand all the features provided by W&B Weave. To enable model tracing, follow these steps:
+Model tracing is enabled using the W&B Weave. Refer to the [documentation](https://weave-docs.wandb.ai/) to understand all the features provided by W&B Weave. To enable model tracing, follow these steps:
 
 - Create a Weights & Biases (W&B) account [here](https://wandb.ai/site) and copy API [key](https://wandb.ai/authorize).
 - Set the `WEAVE_API_KEY` environment variable to your W&B API key in the `.env` file.
